@@ -1,0 +1,26 @@
+<style type="text/css">
+  .link{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  h1{
+    padding-bottom: 2vh;
+  }
+</style>
+<ion-view view-title="Login">
+  <ion-content has-header="false" padding="true">
+    <h1>Findor</h1>
+    <label class="item item-input">
+      <input type="text" placeholder="Username">
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="Password">
+    </label>
+    <button class="button button-block button-positive" ng-click="login()">
+      Login
+    </button>
+    <div>
+      Belum punya akun? <a class="link" ng-click="daftar()">Daftar disini</a>
+    </div>
+  </ion-content>
+</ion-view>
