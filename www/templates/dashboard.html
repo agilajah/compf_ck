@@ -1,52 +1,21 @@
-<ion-view view-title="Registrasi">
+<ion-view>
+  <ion-tabs class="tabs-icon-top tabs-positive">
 
-    <div class="bar bar-header">
-      <button class="button button-icon icon ion-navicon" ng-model="burger_model" ng-click="burger_click()"></button>
-      <div style="width: 100%; display: inline-block;">
-        <input type="text" placeholder="Cari..." style="display: inline-block; width: 80%">
-        <i class="button button-icon icon ion-ios-search" style="display: inline-block;"></i>
-      </div>
-      <button class="button button-icon icon ion-ios-bell-outline" ng-model="notif_model" ng-click="notif_click()"></button>
-    </div>
+    <ion-tab title="Dashboard" icon="ion-home" href="#/tab/t_dashboard">
+      <ion-nav-view name="dashboard-tab"></ion-nav-view>
+    </ion-tab>
 
-  <ion-content class="has-header" padding="true">
-    <div class="list card">
+    <ion-tab title="Profile" icon="ion-person" href="#/tab/t_profile">
+      <ion-nav-view name="profile-tab"></ion-nav-view>
+    </ion-tab>
 
-      <div class="item item-avatar">
-        <img src="img/mcfly.jpg">
-        <h2>Butuh Vendor Katering Makanan</h2>
-        <p>makanan, kuliner, party</p>
-      </div>
+    <ion-tab title="Messages" icon="ion-chatbubble" href="#/tab/t_messages">
+      <ion-nav-view name="messages-tab"></ion-nav-view>
+    </ion-tab>
 
-      <div class="item item-body">
-        <p>
-          Deskripsi kebutuhan disini...
-          Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf. Ia tidak hanya bertahan selama 5 abad, tapi juga telah beralih ke penataan huruf elektronik, tanpa ada perubahan apapun. Ia mulai dipopulerkan pada tahun 1960 dengan diluncurkannya lembaran-lembaran Letraset yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.
-        </p>
-        <p>
-          <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
-        </p>
-      </div>
+    <ion-tab title="Settings" icon="ion-gear-a" href="#/tab/t_settings">
+      <ion-nav-view name="settings-tab"></ion-nav-view>
+    </ion-tab>
 
-      <div class="item item-avatar">
-        <img src="img/mcfly.jpg">
-        <h2>Marty McFly</h2>
-        <p>November 05, 1955</p>
-      </div>
-
-      <div class="item item-body">
-        <img class="full-image" src="img/delorean.jpg">
-        <p>
-          This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-          the content is from a card-body consisting of an image and paragraph text. The footer
-          consists of tabs, icons aligned left, within the card-footer.
-        </p>
-        <p>
-          <a href="#" class="subdued">1 Like</a>
-          <a href="#" class="subdued">5 Comments</a>
-        </p>
-      </div>
-
-    </div>
-  </ion-content>
+  </ion-tabs>
 </ion-view>

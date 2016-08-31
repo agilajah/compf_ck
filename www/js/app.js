@@ -35,46 +35,43 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/dashboard.html'
   })
 
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.t_dashboard', {
+    url: "/t_dashboard",
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'dashboard-tab': {
+        templateUrl: "templates/t_dashboard.html",
+        controller: 'DashboardTabCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-    url: '/chats',
+  .state('tab.t_profile', {
+    url: "/t_profile",
     views: {
-      'tab-chats': {
-        templateUrl: 'templates/tab-chats.html',
-        controller: 'ChatsCtrl'
+      'profile-tab': {
+        templateUrl: "templates/t_profile.html",
+        controller: 'ProfileTabCtrl'
       }
     }
   })
-  .state('tab.chat-detail', {
-    url: '/chats/:chatId',
+  .state('tab.t_messages', {
+    url: "/t_messages",
     views: {
-      'tab-chats': {
-        templateUrl: 'templates/chat-detail.html',
-        controller: 'ChatDetailCtrl'
+      'messages-tab': {
+        templateUrl: "templates/t_messages.html",
+        controller: 'MessagesTabCtrl'
       }
     }
   })
-
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.t_settings', {
+    url: "/t_settings",
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'settings-tab': {
+        templateUrl: "templates/t_settings.html",
+        controller: 'SettingsTabCtrl'
       }
     }
   })
@@ -89,12 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/register',
     templateUrl: 'templates/registrasi.html',
     controller: 'RegisterCtrl'
-  })
-
-  .state('dashboard', {
-    url: '/dashboard',
-    templateUrl: 'templates/dashboard.html',
-    controller: 'DashboardCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback

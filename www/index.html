@@ -26,17 +26,21 @@
   <body ng-app="starter">
     <!--
       The nav bar that will be updated as we navigate between views.
-    -->
+    --><!-- 
     <div class="bar bar-header" ng-model="headerdiv" ng-show="showheader">
       <button class="button button-icon icon {{left_icon}}" ng-show="left_show" ng-model="left_model" ng-click="left_click()">&nbsp;{{left_text}}</button>
       <div class="h1 title">{{ headertext }}</div>
       <button class="button button-icon icon {{right_icon}}" ng-show="right_show" ng-model="right_model" ng-click="right_click()">&nbsp;{{right_text}}</button>
-    </div>
+    </div> -->
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-nav-view></ion-nav-view>
   </body>
 </html>
