@@ -31,11 +31,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+  })
+
+  .state('register', {
+    url: '/register',
+    templateUrl: 'templates/registrasi.html',
+    controller: 'RegisterCtrl'
+  })
+
+
+  .state('search', {
+    url: '/search',
+    templateUrl: 'templates/search.html',
+    controller: 'SearchCtrl'
+  })
+
   // setup an abstract state for the tabs directive
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/dashboard.html'
+    templateUrl: 'templates/dashboard.html',
+    controller: 'TabCtrl'
   })
 
   .state('tab.t_dashboard', {
@@ -74,18 +95,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'SettingsTabCtrl'
       }
     }
-  })
-
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl'
-  })
-
-  .state('register', {
-    url: '/register',
-    templateUrl: 'templates/registrasi.html',
-    controller: 'RegisterCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback

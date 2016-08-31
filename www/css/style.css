@@ -1,1 +1,20 @@
 /* Empty. Add your own CSS if you like */
+.overflow-scroll{
+	overflow-y:auto;
+}
+
+#search_input::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+#search_input:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;  
+}
+
+#search_input::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF;  
+}
+
+#search_input:-ms-input-placeholder {  
+   color: #FFF;  
+}
