@@ -90,6 +90,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'SettingTentangCtrl'
   })
 
+  // Penawaran baru
+  .state('penawaran_baru', {
+    url: '/penawaran_baru',
+    templateUrl: 'templates/tambah_baru_user.html',
+    controller: 'PenawaranBaruCtrl'
+  })
+
   // setup an abstract state for the tabs directive
   .state('tab', {
     url: '/tab',

@@ -1,0 +1,30 @@
+<ion-view view-title="Tambah Tawaran">
+
+  <ion-nav-buttons side="left" ng-show="button_top_tab">
+    <button class="button icon ion-chevron-left" style="border: none;" ng-click="nav_button_back()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right" ng-show="button_top_tab">
+    <button class="button" style="/*border: none;*/" ng-click="nav_button_back()">Terbitkan</button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header" padding="true">
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Nama Penawaran</span>
+        <input type="text" placeholder="misal: Dibutuhkan vendor nikahan komplit">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Tag</span>
+        <input type="text" placeholder="misal: fashion, makanan, property">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Budget</span>
+        <input type="text" placeholder="misal: $70">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Deskripsi</span>
+        <textarea placeholder="Deskripsikan penawaran Anda"></textarea>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

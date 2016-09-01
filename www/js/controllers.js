@@ -93,4 +93,10 @@ angular.module('starter.controllers', [])
   $scope.nav_button_back = function(){
     backDefault();
   }
+})
+
+.controller('PenawaranBaruCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
 });
