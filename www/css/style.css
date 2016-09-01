@@ -117,5 +117,23 @@
 	right: 20px;
 	z-index: 999;
 	bottom: 20px;
-	background-color: #444;
+	background-color: #387ef5;
+	box-shadow: 0px 2px 2px #CCC;
+}
+
+.fab::after{
+	content: "+";
+	text-align: center;
+	font-size: 50px;
+	color: #FFF;
+	display: inline-block;
+	transform: translate(16px, 20px);
+}
+
+.fab:active{
+	background-color: #286ed5;
+}
+
+.fab::after:active{
+	background-color: #DDD;
 }
