@@ -51,6 +51,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'SearchCtrl'
   })
 
+  .state('notifikasi', {
+    url: '/notifikasi',
+    templateUrl: 'templates/notifikasi.html',
+    controller: 'NotifikasiCtrl'
+  })
+
+  .state('chat', {
+    url: '/chat',
+    templateUrl: 'templates/chat.html',
+    controller: 'ChatCtrl'
+  })
+
+
+
+   // SETTING 
+  .state('setting_profile', {
+    url: '/setting_profile',
+    templateUrl: 'templates/setting_profile.html',
+    controller: 'SettingProfileCtrl'
+  })
+
+  .state('setting_notifikasi', {
+    url: '/setting_notifikasi',
+    templateUrl: 'templates/setting_notifikasi.html',
+    controller: 'SettingNotifikasiCtrl'
+  })
+
+  .state('setting_bantuan', {
+    url: '/setting_bantuan',
+    templateUrl: 'templates/setting_bantuan.html',
+    controller: 'SettingBantuanCtrl'
+  })
+
+  .state('setting_tentang', {
+    url: '/setting_tentang',
+    templateUrl: 'templates/setting_tentang.html',
+    controller: 'SettingTentangCtrl'
+  })
+
   // setup an abstract state for the tabs directive
   .state('tab', {
     url: '/tab',

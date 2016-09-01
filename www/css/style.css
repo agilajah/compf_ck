@@ -4,17 +4,100 @@
 }
 
 #search_input::-webkit-input-placeholder {
-   color: #FFF;
+   color: #CCC;
 }
 
 #search_input:-moz-placeholder { /* Firefox 18- */
-   color: #FFF;  
+   color: #CCC;  
 }
 
 #search_input::-moz-placeholder {  /* Firefox 19+ */
-   color: #FFF;  
+   color: #CCC;  
 }
 
 #search_input:-ms-input-placeholder {  
-   color: #FFF;  
+   color: #CCC;  
+}
+
+
+/* t_messages.html */
+
+.list_messages .item{
+	border: none;
+}
+
+.itemx, .itemy{
+	border: none;
+}
+
+.itemx{
+	float: left;
+}
+
+.listx a.activated{
+	background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.itemy{
+	float: right;
+}
+
+.chat_right{
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.chat_left{
+	background-color: #387ef5;
+	color: #FFF !important;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+
+/* t_dashboard.html */
+.row_val_lab{
+	padding: 0 !important;
+}
+
+.value_label{
+	text-align: center;
+	padding: 40px 0;
+}
+
+.value_label_money{
+	background-color: #EEE;
+}
+
+.value_label_works_done{
+	background-color: #F5F5F5;
+}
+
+.value{
+	font-size: 36px;
+	padding: 10px;
+}
+
+.label{
+}
+
+.col-rate-star{
+	padding: 30px 0;
+	text-align: center;
+}
+
+.rate-star{
+	font-size: 40px;
+	color: #666;
+}
+
+.rate-star-number{
+	font-size: 36px;
+	color: #444;
+}
+
+/* Setting Profile */
+.list_setting_profile .input-label{
+	color: #888;
 }

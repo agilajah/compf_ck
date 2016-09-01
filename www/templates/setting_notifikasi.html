@@ -1,0 +1,44 @@
+<ion-view view-title="Setting > Notifikasi">
+
+	<ion-nav-buttons side="left" ng-show="button_top_tab">
+		<button class="button icon ion-chevron-left" style="border: none;" ng-click="nav_button_back()"></button>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right" ng-show="button_top_tab">
+		<button class="button" style="/*border: none;*/" ng-click="nav_button_back()">Simpan</button>
+	</ion-nav-buttons>
+
+    <ion-content>
+    	<div class="list list_setting_profile">
+		  <label class="item item-toggle">
+		     Notifikasi
+		     <label class="toggle toggle-positive">
+		       <input type="checkbox" ng-model="show_notif">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  </label>
+		  <div class="item item-divider" ng-show="show_notif">
+		    Pengaturan Notifikasi
+		  </div>
+		  <label class="item item-toggle" ng-show="show_notif">
+		     Vibrate
+		     <label class="toggle toggle-positive">
+		       <input type="checkbox">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  </label>
+		  <label class="item item-toggle" ng-show="show_notif">
+		     LED
+		     <label class="toggle toggle-positive">
+		       <input type="checkbox">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  </label>
+	    </div>
+    </ion-content>
+</ion-view>

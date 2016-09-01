@@ -32,17 +32,65 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller('NotifikasiCtrl', function($rootScope, $scope, $state, $ionicHistory) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
+})
+
+.controller('ChatCtrl', function($rootScope, $scope, $state, $ionicHistory) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
+})
+
 .controller('DashboardTabCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
 })
 
 .controller('ProfileTabCtrl', function($rootScope, $scope, $state) {
   $scope.nav_button_search = function(){
     $state.go('search');
   }
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
 })
 
 .controller('MessagesTabCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
 })
 
 .controller('SettingsTabCtrl', function($rootScope, $scope, $state) {
+})
+
+.controller('SettingProfileCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
+})
+
+.controller('SettingNotifikasiCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
+  $scope.updatex = function(){
+    console.log($scope.datax);
+  }
+})
+
+.controller('SettingBantuanCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
+})
+
+.controller('SettingTentangCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_back = function(){
+    backDefault();
+  }
 });
