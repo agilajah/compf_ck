@@ -106,3 +106,16 @@
 .list_setting_profile .input-label{
 	color: #888;
 }
+
+
+/* dashboard.html | floating action button */
+.fab{
+	position: absolute;
+	width: 60px;
+	border-radius: 30px;
+	height: 60px;
+	right: 20px;
+	z-index: 999;
+	bottom: 20px;
+	background-color: #444;
+}
