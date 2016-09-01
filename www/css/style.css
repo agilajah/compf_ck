@@ -97,6 +97,11 @@
 	color: #444;
 }
 
+/* t_setting.html */
+.list_setting .item{
+	border: none;
+}
+
 /* Setting Profile */
 .list_setting_profile .input-label{
 	color: #888;
