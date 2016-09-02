@@ -16,73 +16,47 @@
 			</div>
 		</div>
 		<div style="padding: 10px; background-color: rgba(0, 0, 0, .05);text-align: center;">HISTORY</div>
-	    <div class="card">
+	    <div class="card" ng-repeat="timelineCard in profileCardContainer">
 
-			<div class="item item-avatar">
-				<img src="img/mcfly.jpg">
-				<h2>Butuh Vendor Katering Makanan</h2>
-				<p>makanan, kuliner, party</p>
+			<div class="item item-avatar" style="background-color: #EEE">
+				<img src="{{ timelineCard.picture }}">
+				<h2>{{ timelineCard.title }}</h2>
+				<p>{{ timelineCard.postDate }}</p>
 			</div>
 
-			<div class="item item-body">
+			<style type="text/css">
+				.textured{
+					background: url('img/bgpat.png');
+				}
+			</style>
+
+			<div class="item item-body textured">
+				<p>
+					<b>Budget: {{ timelineCard.budget }}</b><br/>
+					<a class="subdued" style="font-weight: bold;"><small><i class="icon ion-clipboard"></i> {{ timelineCard.proposal.n }} (rata-rata:  {{ timelineCard.proposal.avg }})</small></a>
+				</p>
+				<p>
+					{{ timelineCard.briefDesc }}<br/>
+					<span style="font-style: italic;"><small><b>Tag:  {{ timelineCard.tags }}</b></small></span><br/>
+				</p>
 				<div>
-					<b>Budget: $26</b>
+					<b><i class="icon ion-calendar"></i></b> {{ timelineCard.dueDate }}
 				</div>
-				<p>
-					Deskripsi kebutuhan disini...
-					Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak.
-				</p>
-
-				<p>
-				  <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
-				</p>
-			</div>
-		</div>
-
-	    <div class="card">
-
-			<div class="item item-avatar">
-				<img src="img/mcfly.jpg">
-				<h2>Butuh Vendor Katering Makanan</h2>
-				<p>makanan, kuliner, party</p>
 			</div>
 
-			<div class="item item-body">
-				<div>
-					<b>Budget: $26</b>
-				</div>
-				<p>
-					Deskripsi kebutuhan disini...
-					Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak.
-				</p>
-				
-				<p>
-				  <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
-				</p>
-			</div>
-		</div>
-
-	    <div class="card">
-
-			<div class="item item-avatar">
-				<img src="img/mcfly.jpg">
-				<h2>Butuh Vendor Katering Makanan</h2>
-				<p>makanan, kuliner, party</p>
-			</div>
-
-			<div class="item item-body">
-				<div>
-					<b>Budget: $26</b>
-				</div>
-				<p>
-					Deskripsi kebutuhan disini...
-					Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak.
-				</p>
-				
-				<p>
-				  <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
-				</p>
-			</div>
+			<style type="text/css">
+				.row-footer, .col-footer, .item-divider-footer{
+					padding: 0;
+				}
+				.button-detail{
+					background-color: rgba(56, 126, 245, 0.8);
+					color: white;
+				}
+				.button-bid{
+					background-color: rgba(76, 156, 255, 0.8);
+					color: white;
+				}
+			</style>
 		</div>
     </ion-content>
 </ion-view>
