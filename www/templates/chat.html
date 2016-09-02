@@ -1,12 +1,24 @@
+
+
 <ion-view view-title="Chat">
 
 	<ion-nav-buttons side="left" ng-show="button_top_tab">
 		<button class="button icon ion-chevron-left" style="border: none;" ng-click="nav_button_back()"></button>
 	</ion-nav-buttons>
 
-    <ion-content class="has-footer" scroll-glue>
+	<style type="text/css">
+		.textured{
+			background: url('img/bgpat.png');
+		}
+	
+		.listx a.slow{
+			background-color: rgba(0, 0, 0, 0);
+		}
+	</style>
+
+    <ion-content class="has-footer textured" scroll-glue>
     	<div class="list listx">
-			<a class="item item-avatar {{ chatDetails.picture == null ? 'itemy' : 'itemx' }} item-text-wrap" href="#/chat" ng-repeat="chatDetails in chatContainer">
+			<a class="item item-avatar {{ chatDetails.picture == null ? 'itemy' : 'itemx' }} item-text-wrap slow" href="#/chat" ng-repeat="chatDetails in chatContainer">
 				<img src="{{ chatDetails.picture }}" ng-show="chatDetails.picture == null ? false : true">
 				<p class="{{ chatDetails.picture == null ? 'chat_right' : 'chat_left' }}">{{ chatDetails.messages }}</p>
 			</a>

@@ -164,6 +164,37 @@ angular.module('starter.controllers', ['luegg.directives'])
   $scope.nav_button_notifikasi = function(){
     $state.go('notifikasi');
   }
+
+  $scope.profileCardContainer = [
+    {
+      'picture': 'img/mcfly.jpg',
+      'title': 'Butuh orderan cepat, nikahan',
+      'postDate': '17:24',
+      'star': 3.6,
+      'budget': 'Rp 27.000.000,00',
+      'briefDesc': 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus maximus, elit eget pharetra cursus',
+      'tags': 'kuliner, fashion, pharetra',
+      'dueDate': '22 Sep 2016',
+      'proposal': {
+        'n': '27',
+        'avg': 'Rp 24.186.222,00'
+      }
+    },
+    {
+      'picture': 'img/mike.png',
+      'title': 'Dicari vendor roti kukus',
+      'postDate': '14:52',
+      'star': 4.8,
+      'budget': 'Rp 15.000.000,00',
+      'briefDesc': 'Praesent aliquet libero dolor, at tincidunt augue mollis eget. Phasellus vestibulum pretium magna vel malesuada.',
+      'tags': 'kuliner, roti, buku',
+      'dueDate': '20 Sep 2016',
+      'proposal': {
+        'n': '7',
+        'avg': 'Rp 12.716.912,00'
+      }
+    },
+  ]
 })
 
 .controller('VMessagesTabCtrl', function($rootScope, $scope, $state) {

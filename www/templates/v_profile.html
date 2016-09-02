@@ -13,6 +13,59 @@
 				<img src="img/ben.png" style="width: 100%; border-radius: 5px;">
 			</div>
 		</div>
-		<!-- <div style="padding: 10px; background-color: rgba(0, 0, 0, .05);text-align: center;">HISTORY</div> -->
+		<div style="padding: 10px; background-color: rgba(0, 0, 0, .05);text-align: center;">HISTORY</div>
+		<div class="card" ng-repeat="timelineCard in profileCardContainer">
+
+			<div class="item item-avatar" style="background-color: #EEE">
+				<img src="{{ timelineCard.picture }}">
+				<h2>{{ timelineCard.title }}</h2>
+				<p>{{ timelineCard.postDate }}</p>
+			</div>
+
+			<style type="text/css">
+				.textured{
+					background: url('img/bgpat.png');
+				}
+			</style>
+
+			<div class="item item-body textured">
+				<div class="row row-star-timeline">
+					<div class="col col-rate-timeline">
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 0.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 1.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 2.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 3.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 4.50 ? 'blue' : '' }}"></i>
+						&nbsp;
+						<span class="timeline-star-number">{{ timelineCard.star }}</span>
+					</div>
+				</div>
+				<p>
+					<b>Budget: {{ timelineCard.budget }}</b><br/>
+					<a class="subdued" style="font-weight: bold;"><small><i class="icon ion-clipboard"></i> {{ timelineCard.proposal.n }} (rata-rata:  {{ timelineCard.proposal.avg }})</small></a>
+				</p>
+				<p>
+					{{ timelineCard.briefDesc }}<br/>
+					<span style="font-style: italic;"><small><b>Tag:  {{ timelineCard.tags }}</b></small></span><br/>
+				</p>
+				<div>
+					<b><i class="icon ion-calendar"></i></b> {{ timelineCard.dueDate }}
+				</div>
+			</div>
+
+			<style type="text/css">
+				.row-footer, .col-footer, .item-divider-footer{
+					padding: 0;
+				}
+				.button-detail{
+					background-color: rgba(56, 126, 245, 0.8);
+					color: white;
+				}
+				.button-bid{
+					background-color: rgba(76, 156, 255, 0.8);
+					color: white;
+				}
+			</style>
+		</div>
     </ion-content>
 </ion-view>

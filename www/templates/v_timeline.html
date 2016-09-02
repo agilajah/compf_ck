@@ -6,13 +6,19 @@
     <ion-content>
 	    <div class="card" ng-repeat="timelineCard in cardContainer">
 
-			<div class="item item-avatar">
+			<div class="item item-avatar" style="background-color: #EEE">
 				<img src="{{ timelineCard.picture }}">
 				<h2>{{ timelineCard.title }}</h2>
 				<p>{{ timelineCard.postDate }}</p>
 			</div>
 
-			<div class="item item-body">
+			<style type="text/css">
+				.textured{
+					background: url('img/bgpat.png');
+				}
+			</style>
+
+			<div class="item item-body textured">
 				<div class="row row-star-timeline">
 					<div class="col col-rate-timeline">
 						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 0.50 ? 'blue' : '' }}"></i>
@@ -35,6 +41,30 @@
 				<div>
 					<b><i class="icon ion-calendar"></i></b> {{ timelineCard.dueDate }}
 				</div>
+			</div>
+
+			<style type="text/css">
+				.row-footer, .col-footer, .item-divider-footer{
+					padding: 0;
+				}
+				.button-detail{
+					background-color: rgba(56, 126, 245, 0.8);
+					color: white;
+				}
+				.button-bid{
+					background-color: rgba(76, 156, 255, 0.8);
+					color: white;
+				}
+			</style>
+			<div class="item item-divider item-divider-footer">
+			    <div class="row row-footer">
+			    	<div class="col-50 col-footer">
+			    		<button class="button button-detail" style="border-radius: 0;width: 100%;/*border: none;*/" ng-click="">Detail</button>
+			    	</div>
+			    	<div class="col-50 col-footer">
+			    		<button class="button button-bid" style="border-radius: 0; width: 100%;/*border: none;*/" ng-click="">Bid!</button>
+			    	</div>
+			    </div>
 			</div>
 		</div>
     </ion-content>
