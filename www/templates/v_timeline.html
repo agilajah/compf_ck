@@ -4,72 +4,37 @@
 		<button class="button icon ion-ios-bell" style="border: none;" ng-click="nav_button_notifikasi()">0</button>
 	</ion-nav-buttons>
     <ion-content>
-	    <div class="card">
+	    <div class="card" ng-repeat="timelineCard in cardContainer">
 
 			<div class="item item-avatar">
-				<img src="img/mcfly.jpg">
-				<h2>Butuh Vendor Katering Makanan</h2>
-				<p>makanan, kuliner, party</p>
+				<img src="{{ timelineCard.picture }}">
+				<h2>{{ timelineCard.title }}</h2>
+				<p>{{ timelineCard.postDate }}</p>
 			</div>
 
 			<div class="item item-body">
-				<div>
-					<b>Budget: $26</b>
+				<div class="row row-star-timeline">
+					<div class="col col-rate-timeline">
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 0.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 1.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 2.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 3.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 4.50 ? 'blue' : '' }}"></i>
+						&nbsp;
+						<span class="timeline-star-number">{{ timelineCard.star }}</span>
+					</div>
 				</div>
 				<p>
-					Deskripsi kebutuhan disini...
-					Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak.
+					<b>Budget: {{ timelineCard.budget }}</b><br/>
+					<a class="subdued" style="font-weight: bold;"><small><i class="icon ion-clipboard"></i> {{ timelineCard.proposal.n }} (rata-rata:  {{ timelineCard.proposal.avg }})</small></a>
 				</p>
-
 				<p>
-				  <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
+					{{ timelineCard.briefDesc }}<br/>
+					<span style="font-style: italic;"><small><b>Tag:  {{ timelineCard.tags }}</b></small></span><br/>
 				</p>
-			</div>
-		</div>
-
-	    <div class="card">
-
-			<div class="item item-avatar">
-				<img src="img/mcfly.jpg">
-				<h2>Butuh Vendor Katering Makanan</h2>
-				<p>makanan, kuliner, party</p>
-			</div>
-
-			<div class="item item-body">
 				<div>
-					<b>Budget: $26</b>
+					<b><i class="icon ion-calendar"></i></b> {{ timelineCard.dueDate }}
 				</div>
-				<p>
-					Deskripsi kebutuhan disini...
-					Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak.
-				</p>
-				
-				<p>
-				  <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
-				</p>
-			</div>
-		</div>
-
-	    <div class="card">
-
-			<div class="item item-avatar">
-				<img src="img/mcfly.jpg">
-				<h2>Butuh Vendor Katering Makanan</h2>
-				<p>makanan, kuliner, party</p>
-			</div>
-
-			<div class="item item-body">
-				<div>
-					<b>Budget: $26</b>
-				</div>
-				<p>
-					Deskripsi kebutuhan disini...
-					Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak.
-				</p>
-				
-				<p>
-				  <a class="subdued" style="font-weight: bold;">Proposal Masuk: 25 (rata-rata: Rp 745ribu)</a>
-				</p>
 			</div>
 		</div>
     </ion-content>
