@@ -124,6 +124,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+
   .state('tab.t_messages', {
     url: "/t_messages",
     views: {
@@ -133,10 +134,70 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+
   .state('tab.t_settings', {
     url: "/t_settings",
     views: {
       'settings-tab': {
+        templateUrl: "templates/t_settings.html",
+        controller: 'SettingsTabCtrl'
+      }
+    }
+  })
+
+
+  // setup an abstract state for the tabs directive
+  .state('tab_vendor', {
+    url: '/tab_vendor',
+    abstract: true,
+    templateUrl: 'templates/tab_vendor.html',
+    controller: 'TabVendorCtrl'
+  })
+
+  .state('tab_vendor.v_dashboard', {
+    url: "/v_dashboard",
+    views: {
+      'v-dashboard-tab': {
+        templateUrl: "templates/v_dashboard.html",
+        controller: 'VDashboardTabCtrl'
+      }
+    }
+  })
+
+  .state('tab_vendor.v_profile', {
+    url: "/v_profile",
+    views: {
+      'v-profile-tab': {
+        templateUrl: "templates/v_profile.html",
+        controller: 'VProfileTabCtrl'
+      }
+    }
+  })
+
+  .state('tab_vendor.v_timeline', {
+    url: "/v_timeline",
+    views: {
+      'v-timeline-tab': {
+        templateUrl: "templates/v_timeline.html",
+        controller: 'VTimelineTabCtrl'
+      }
+    }
+  })
+
+  .state('tab_vendor.v_messages', {
+    url: "/v_messages",
+    views: {
+      'v-messages-tab': {
+        templateUrl: "templates/v_messages.html",
+        controller: 'VMessagesTabCtrl'
+      }
+    }
+  })
+
+  .state('tab_vendor.v_settings', {
+    url: "/v_settings",
+    views: {
+      'v-settings-tab': {
         templateUrl: "templates/t_settings.html",
         controller: 'SettingsTabCtrl'
       }

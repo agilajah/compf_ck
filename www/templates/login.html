@@ -11,10 +11,10 @@
   <ion-content padding="true">
     <h1>Findor</h1>
     <label class="item item-input">
-      <input type="text" placeholder="Username">
+      <input type="text" placeholder="Username" ng-model="$parent.username">
     </label>
     <label class="item item-input">
-      <input type="text" placeholder="Password">
+      <input type="password" placeholder="Password" ng-model="$parent.password">
     </label>
     <button class="button button-block button-positive" ng-click="login()">
       Login

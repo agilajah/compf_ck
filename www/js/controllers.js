@@ -10,9 +10,21 @@ angular.module('starter.controllers', [])
     $rootScope.header_bar = true;
   }
   $scope.login = function(){
-    $state.go('tab.t_dashboard');
-    $rootScope.header_bar = true;
-    $rootScope.button_top_tab = true;
+    if($scope.username == "vendor" && $scope.password == "vendor"){
+      $state.go('tab_vendor.v_dashboard');
+      $rootScope.header_bar = true;
+      $rootScope.button_top_tab = true;
+      return;
+    }
+
+    if($scope.username == "user" && $scope.password == "user"){
+      $state.go('tab.t_dashboard');
+      $rootScope.header_bar = true;
+      $rootScope.button_top_tab = true;
+      return;
+    }
+
+    alert("username | password = (X)")
   }
 })
 
@@ -21,9 +33,6 @@ angular.module('starter.controllers', [])
     backDefault();
     $rootScope.header_bar = false;
   }
-})
-
-.controller('TabCtrl', function($rootScope, $scope, $state) {
 })
 
 .controller('SearchCtrl', function($rootScope, $scope, $state, $ionicHistory) {
@@ -44,6 +53,12 @@ angular.module('starter.controllers', [])
   }
 })
 
+
+// MAIN TAB USER CONTROLLER
+.controller('TabCtrl', function($rootScope, $scope, $state) {
+})
+
+// TAB USER CONTROLLER
 .controller('DashboardTabCtrl', function($rootScope, $scope, $state) {
   $scope.nav_button_notifikasi = function(){
     $state.go('notifikasi');
@@ -60,6 +75,40 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MessagesTabCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
+})
+
+
+
+// MAIN TAB VENDOR CONTROLLER
+.controller('TabVendorCtrl', function($rootScope, $scope, $state) {
+})
+
+// TAB VENDOR CONTROLLER
+.controller('VDashboardTabCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
+})
+
+.controller('VProfileTabCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_search = function(){
+    $state.go('search');
+  }
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
+})
+
+.controller('VMessagesTabCtrl', function($rootScope, $scope, $state) {
+  $scope.nav_button_notifikasi = function(){
+    $state.go('notifikasi');
+  }
+})
+
+.controller('VTimelineTabCtrl', function($rootScope, $scope, $state) {
   $scope.nav_button_notifikasi = function(){
     $state.go('notifikasi');
   }
