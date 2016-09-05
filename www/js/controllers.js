@@ -1,8 +1,10 @@
 var backDefault;
 var scopeChat;
+var alamatServer = "http://taleus-finddor.hol.es"
+var GLOBAL_ID;
 angular.module('starter.controllers', ['luegg.directives'])
 
-.controller('LoginCtrl', function($scope, $state, $rootScope) {
+.controller('LoginCtrl', function($scope, $state, $rootScope, $http) {
   backDefault = $rootScope.$ionicGoBack;
   $rootScope.header_bar = false;
   $rootScope.button_top_tab = false;
@@ -11,28 +13,73 @@ angular.module('starter.controllers', ['luegg.directives'])
     $rootScope.header_bar = true;
   }
   $scope.login = function(){
-    if($scope.username == "vendor" && $scope.password == "vendor"){
-      $state.go('tab_vendor.v_dashboard');
-      $rootScope.header_bar = true;
-      $rootScope.button_top_tab = true;
-      return;
-    }
+    if($scope.username != undefined && $scope.username != '' && 
+      $scope.password != undefined && $scope.password != ''){
 
-    if($scope.username == "user" && $scope.password == "user"){
-      $state.go('tab.t_dashboard');
-      $rootScope.header_bar = true;
-      $rootScope.button_top_tab = true;
-      return;
-    }
+      // loading($ionicLoading, 'show');
+      var reqURL = alamatServer + '/index.php?kode=auth&username=' + $scope.username + '&password=' + $scope.password;
+      console.log(reqURL);
+      $http.get(reqURL)
+      .then(function(response){
+        if(response.data == null){
+          Toast('Username atau password salah', 'alert');
+          return ;
+        }
 
-    alert("username | password = (X)")
+        GLOBAL_ID = response.data.id;
+        if(response.data.is_vendor == "1"){
+          $state.go('tab_vendor.v_dashboard');
+          $rootScope.header_bar = true;
+          $rootScope.button_top_tab = true;
+          return;
+        }
+
+        if(response.data.is_vendor == "0"){
+          $state.go('tab.t_dashboard');
+          $rootScope.header_bar = true;
+          $rootScope.button_top_tab = true;
+          return;
+        }
+      });
+    }else{
+      Toast('Username atau password tidak boleh kosong', 'alert');
+    }
+    // alert("username | password = (X)")
   }
 })
 
-.controller('RegisterCtrl', function($scope, $ionicHistory, $rootScope){
+.controller('RegisterCtrl', function($scope, $ionicHistory, $rootScope, $http, $timeout, $state){
   $rootScope.$ionicGoBack = function(){
     backDefault();
     $rootScope.header_bar = false;
+  }
+
+  var Toast = function(pesan, style){
+    $rootScope.kelasToast = style + ' toast-show';
+    $timeout(function(){
+      $rootScope.kelasToast = style + ' toast-hide';
+    }, 2000);
+    $rootScope.pesanToast = pesan;
+  }
+
+  $scope.daftar = function(){
+    if($scope.username != undefined && $scope.username != '' && 
+      $scope.password != undefined && $scope.password != '' && 
+      $scope.nama != undefined && $scope.nama != '' && 
+      $scope.email != undefined && $scope.email != '' && 
+      $scope.jenis != undefined && $scope.jenis != ''){
+
+      var reqURL = alamatServer + '/index.php?kode=create&nama=' + $scope.nama + '&username=' + $scope.username + '&password=' + $scope.password + '&email=' + $scope.email + '&is_vendor=' + $scope.jenis;
+      console.log(reqURL);
+      $http.get(reqURL)
+      .then(function(response){
+        console.log(response);
+        Toast('Pendaftaran berhasil', 'notification');
+        $state.go('login');
+      });
+    }else{
+      Toast('Kolom data tidak boleh kosong', 'alert');
+    }
   }
 })
 

@@ -3,6 +3,42 @@
 	color: #387ef5 !important;
 }
 
+/* TOAST */
+.toast{
+	position: fixed;
+	top: 4vh;
+	left: 0;
+	width: 60vw;
+	margin: 0 20vw;
+	padding: 2vmin;
+	text-align: center;
+	font-size: 4vmin;
+	border-radius: 6vmin;
+	opacity: 0;
+	color: white;
+	transition: opacity .5s;
+}
+
+.toast-hide{
+	opacity: 0;
+	z-index: 1;
+}
+.toast-show{
+	opacity: 1;
+	z-index: 99;
+}
+.alert{
+	background: rgba(200, 100, 100, .95);
+}
+.notification{
+	background: rgba(100, 100, 100, .95);
+}
+.scroll-bar-indicator
+{
+	display: none;
+}
+
+/* GENERAL X */
 .overflow-scroll{
 	overflow-y:auto;
 }

@@ -3,15 +3,24 @@
     <div class="list">
       <label class="item item-input item-stacked-label">
         <span class="input-label">Nama Lengkap</span>
-        <input type="text" placeholder="misal: Budi">
+        <input type="text" placeholder="misal: Budi" ng-model="$parent.nama">
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Nama Pengguna</span>
-        <input type="text" placeholder="misal: budi_santoso">
+        <input type="text" placeholder="misal: budi_santoso" ng-model="$parent.username">
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Jenis
+        </div>
+        <select ng-model="$parent.jenis">
+          <option value="0" selected>User</option>
+          <option value="1">Vendor</option>
+        </select>
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Password</span>
-        <input type="password" placeholder="****">
+        <input type="password" placeholder="****" ng-model="$parent.password">
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Re-Password</span>
@@ -19,9 +28,9 @@
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Email</span>
-        <input type="text" placeholder="misal: budi@santoso.com">
+        <input type="text" placeholder="misal: budi@santoso.com" ng-model="$parent.email">
       </label>
-      <button class="button button-block button-positive">
+      <button class="button button-block button-positive" ng-click="daftar()">
         Daftar
       </button>
     </div>
