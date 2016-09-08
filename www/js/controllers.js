@@ -437,6 +437,29 @@ angular.module('starter.controllers', ['luegg.directives'])
   $scope.nav_button_back = function(){
     backDefault();
   }
+
+  $scope.init = function(){
+    // check if data is empty
+    if(GLOBAL_VENDOR[APP_VENDOR.SETTING] == undefined)
+      return;
+
+    var len = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.tags.length
+    var str_tag = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.tags[0];
+    if(len > 1)
+      for(var i = 1; i < len; i++)
+        str_tag += ', ' + GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.tags[i];
+
+    $scope.bindVal_ppurl = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.profilePictureUrl;
+    $scope.bindVal_name = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.name;
+    $scope.bindVal_phoneNo = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.phoneNo;
+    $scope.bindVal_availability = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.availability;
+    $scope.bindVal_address = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.address;
+    $scope.bindVal_description = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.description;
+    $scope.bindVal_tags = str_tag;
+    $scope.bindVal_email = GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.email;
+  }
+
+  $scope.init();
 })
 
 // GENERAL SETTING → NOTIFIKASI
@@ -447,6 +470,18 @@ angular.module('starter.controllers', ['luegg.directives'])
   $scope.updatex = function(){
     console.log($scope.datax);
   }
+
+  $scope.init = function(){
+    // check if data is empty
+    if(GLOBAL_VENDOR[APP_VENDOR.SETTING] == undefined)
+      return;
+
+    $scope.bindVal_status = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.status;
+    $scope.bindVal_vibrate = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.vibrate;
+    $scope.bindVal_led = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.led;
+  }
+
+  $scope.init();
 })
 
 // GENERAL SETTING → BANTUAN

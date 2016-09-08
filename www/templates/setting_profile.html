@@ -11,21 +11,21 @@
     	<div class="list list_setting_profile">
 
 	      <label class="item item-input item-stacked-label">
-			<img src="img/ben.png" style="width: 40%; border-radius: 5px;">
+			<img src="{{ bindVal_ppurl }}" style="width: 40%; border-radius: 5px;">
 			<button class="button button-calm" style="/*border: none;*/" ng-click="nav_button_back()">Ubah Foto Profil</button>
 	      </label>
 	      <label class="item item-input item-stacked-label">
 	        <span class="input-label">Nama Lengkap</span>
-	        <input type="text" placeholder="misal: Budi" value="Andrian Putra">
+	        <input type="text" placeholder="misal: Budi" value="{{ bindVal_name }}">
 	      </label>
 	      <label class="item item-input item-stacked-label">
 	        <span class="input-label">Nomor Handphone</span>
-	        <input type="text" placeholder="misal: Budi" value="081128419901">
+	        <input type="text" placeholder="misal: Budi" value="{{ bindVal_phoneNo }}">
 	      </label>
 		  <label class="item item-toggle">
 		     Availability
 		     <label class="toggle toggle-positive">
-		       <input type="checkbox">
+		       <input type="checkbox" checked="" ="{{ bindVal_availability ? 'checked' : '' }}">
 		       <div class="track">
 		         <div class="handle"></div>
 		       </div>
@@ -34,19 +34,19 @@
 
 	      <label class="item item-input item-stacked-label">
 	        <span class="input-label">Alamat</span>
-	        <input type="text" placeholder="misal: Jl. Teratai" value="Jl. Ganesha 10 Bandung">
+	        <input type="text" placeholder="misal: Jl. Teratai" value="{{ bindVal_address }}">
 	      </label>
 	      <label class="item item-input item-stacked-label">
 	        <span class="input-label">Deskripsi</span>
-	        <textarea placeholder="Deskripsi Anda...">Contoh deskripsi, test, test... test ^^</textarea>
+	        <textarea placeholder="Deskripsi Anda...">{{ bindVal_description }}</textarea>
 	      </label>
 	      <label class="item item-input item-stacked-label">
 	        <span class="input-label">Tag</span>
-	        <input type="text" placeholder="Isi tag, pisahkan dengan koma" value="fashion, party, books">
+	        <input type="text" placeholder="Isi tag, pisahkan dengan koma" value="{{ bindVal_tags }}">
 	      </label>
 	      <label class="item item-input item-stacked-label">
 	        <span class="input-label">Email</span>
-	        <input type="email" placeholder="" value="andrian@putra.com">
+	        <input type="email" placeholder="" value="{{ bindVal_email }}">
 	      </label>
 	    </div>
     </ion-content>

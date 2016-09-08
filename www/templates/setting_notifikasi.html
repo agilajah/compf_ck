@@ -12,7 +12,7 @@
 		  <label class="item item-toggle">
 		     Notifikasi
 		     <label class="toggle toggle-positive">
-		       <input type="checkbox" ng-model="show_notif">
+		       <input type="checkbox" ng-model="show_notif" checked="{{ bindVal_status ? 'checked' : '' }}">
 		       <div class="track">
 		         <div class="handle"></div>
 		       </div>
@@ -24,7 +24,7 @@
 		  <label class="item item-toggle" ng-show="show_notif">
 		     Vibrate
 		     <label class="toggle toggle-positive">
-		       <input type="checkbox">
+		       <input type="checkbox" checked="{{ bindVal_vibrate ? 'checked' : '' }}">
 		       <div class="track">
 		         <div class="handle"></div>
 		       </div>
@@ -33,7 +33,7 @@
 		  <label class="item item-toggle" ng-show="show_notif">
 		     LED
 		     <label class="toggle toggle-positive">
-		       <input type="checkbox">
+		       <input type="checkbox" checked="{{ bindVal_led ? 'checked' : '' }}">
 		       <div class="track">
 		         <div class="handle"></div>
 		       </div>
