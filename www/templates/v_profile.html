@@ -5,12 +5,12 @@
     <ion-content>
 	    <div class="row" style="padding: 10px; background-color: rgba(0, 0, 0, .1);">
 			<div class="col-75">
-				<div style="font-weight: bold;">Andrian Putra</div>
-				<div>13514729</div>
-				<div>Institut Teknologi Bandung</div>
+				<div style="font-weight: bold;">{{ bindVal_name }}</div>
+				<div>{{ bindVal_phoneNo }}</div>
+				<div>{{ bindVal_address }}</div>
 			</div>
 			<div class="col">
-				<img src="img/ben.png" style="width: 100%; border-radius: 5px;">
+				<img src="{{ bindVal_ppurl }}" style="width: 100%; border-radius: 5px;">
 			</div>
 		</div>
 		<div style="padding: 10px; background-color: rgba(0, 0, 0, .05);text-align: center;">HISTORY</div>
