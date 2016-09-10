@@ -18,9 +18,10 @@
 
     <ion-content class="has-footer textured" scroll-glue>
     	<div class="list listx">
-			<a class="item item-avatar {{ chatDetails.picture == null ? 'itemy' : 'itemx' }} item-text-wrap slow" href="#/chat" ng-repeat="chatDetails in chatContainer">
+			<a class="item item-avatar {{ chatDetails.picture == null ? 'itemy' : 'itemx' }} item-text-wrap slow" ng-repeat="chatDetails in chatContainer">
 				<img src="{{ chatDetails.picture }}" ng-show="chatDetails.picture == null ? false : true">
 				<p class="{{ chatDetails.picture == null ? 'chat_right' : 'chat_left' }}">{{ chatDetails.messages }}</p>
+				<span class="read-status">R</span>
 			</a>
 		</div>
     </ion-content>

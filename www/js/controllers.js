@@ -8,6 +8,7 @@ var alamatServer = "http://localhost/"
 var GLOBAL_ID;
 var GLOBAL_USER = [];
 var GLOBAL_VENDOR = [];
+var GLOBAL_CHAT_DATA = [];
 
 function makeEnum(){
   var o = new Object();
@@ -162,53 +163,13 @@ angular.module('starter.controllers', ['luegg.directives'])
     }, 10);
   }
 
-  $scope.chatContainer = [
-    {
-      picture: 'img/adam.jpg',
-      messages: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-    },
-    {
-      picture: null,
-      messages: 'Praesent aliquet libero dolor, at tincidunt augue mollis eget. Phasellus vestibulum pretium magna vel malesuada.'
-    },
-    {
-      picture: 'img/adam.jpg',
-      messages: 'Curabitur euismod lacus consectetur arcu rutrum,'
-    },
-    {
-      picture: null,
-      messages: 'sed hendrerit augue interdum. Ut non ullamcorper nibh. Integer ac erat nisl. '
-    },
-    {
-      picture: 'img/adam.jpg',
-      messages: 'ipsum risus tristique nulla,'
-    },
-    {
-      picture: 'img/adam.jpg',
-      messages: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus maximus, elit eget pharetra cursus'
-    },
-    {
-      picture: null,
-      messages: 'Praesent aliquet libero dolor, at tincidunt augue mollis eget. Phasellus vestibulum pretium magna vel malesuada.'
-    },
-    {
-      picture: 'img/adam.jpg',
-      messages: 'Curabitur euismod lacus consectetur arcu rutrum,'
-    },
-    {
-      picture: null,
-      messages: 'sed hendrerit augue interdum. Ut non ullamcorper nibh. Integer ac erat nisl. '
-    },
-    {
-      picture: 'img/adam.jpg',
-      messages: 'ipsum risus tristique nulla,'
-    },
-    {
-      picture: 'img/adam.jpg',
-      messages: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus maximus, elit eget pharetra cursus'
-    }
-  ]
-
+  $scope.chatContainer = [];
+  GLOBAL_CHAT_DATA[$state.params.parent_id].forEach(function(chat){
+    $scope.chatContainer.push({
+      picture: (GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.username == chat.creator_name ? null : 'img/adam.jpg'),
+      messages: chat.body
+    });
+  })
   $scope.nav_button_back = function(){
     backDefault();
   }
@@ -385,6 +346,43 @@ angular.module('starter.controllers', ['luegg.directives'])
   $scope.nav_button_notifikasi = function(){
     $state.go('notifikasi');
   }
+
+  $scope.gotoChat = function(parentId){
+    // console.log(parentId);
+    $state.go('chat', {parent_id: parentId});
+  }
+
+  $scope.chatContainer = [];
+  GLOBAL_CHAT_DATA = [];
+
+  $scope.init = function(){
+    // check if data is empty
+    if(GLOBAL_VENDOR[APP_VENDOR.CHAT] == undefined)
+      return;
+
+    var parentIdArr = [];
+
+    GLOBAL_VENDOR[APP_VENDOR.CHAT].forEach(function(data){
+      if(GLOBAL_CHAT_DATA[data.parent_id] == undefined)
+        GLOBAL_CHAT_DATA[data.parent_id] = [];
+
+      GLOBAL_CHAT_DATA[data.parent_id].push(data);
+
+      
+      if(parentIdArr.indexOf(data.parent_id) === -1){
+        parentIdArr.push(data.parent_id);
+
+        $scope.chatContainer.push({
+          "parent_id": data.parent_id,
+          "picture": null,
+          "name": (GLOBAL_VENDOR[APP_VENDOR.SETTING].profile.username == data.creator_name ? data.recipient_name : data.creator_name),
+          "summary_msg": data.body
+        })
+      }
+    })
+  }
+
+  $scope.init();
 })
 
 .controller('VTimelineTabCtrl', function($rootScope, $scope, $state) {
@@ -477,6 +475,7 @@ angular.module('starter.controllers', ['luegg.directives'])
       return;
 
     $scope.bindVal_status = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.status;
+    $scope.show_notif = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.status;
     $scope.bindVal_vibrate = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.vibrate;
     $scope.bindVal_led = GLOBAL_VENDOR[APP_VENDOR.SETTING].notification.led;
   }

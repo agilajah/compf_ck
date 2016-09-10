@@ -5,25 +5,10 @@
     <ion-content>
 
 	    <div class="list list_messages">
-			<a class="item item-avatar" href="#/chat">
-				<img src="img/adam.jpg">
-				<h2>Venkman</h2>
-				<p>Back off, man. I'm a scientist.</p>
-			</a>
-			<a class="item item-avatar" href="#/chat">
-				<img src="img/adam.jpg">
-				<h2>Venkman</h2>
-				<p>Back off, man. I'm a scientist.</p>
-			</a>
-			<a class="item item-avatar" href="#/chat">
-				<img src="img/adam.jpg">
-				<h2>Venkman</h2>
-				<p>Back off, man. I'm a scientist.</p>
-			</a>
-			<a class="item item-avatar" href="#/chat">
-				<img src="img/adam.jpg">
-				<h2>Venkman</h2>
-				<p>Back off, man. I'm a scientist.</p>
+			<a class="item item-avatar" ng-click="gotoChat(chat.parent_id)" ng-repeat="chat in chatContainer">
+				<img src="{{ chat.picture }}">
+				<h2>{{ chat.name }}</h2>
+				<p>{{ chat.summary_msg }}</p>
 			</a>
 		</div>
     </ion-content>
