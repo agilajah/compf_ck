@@ -7,16 +7,16 @@
     <ion-content>
 	    <div class="row" style="padding: 10px; background-color: rgba(0, 0, 0, .1);">
 			<div class="col-75">
-				<div style="font-weight: bold;">Andrian Putra</div>
-				<div>13514729</div>
-				<div>Institut Teknologi Bandung</div>
+				<div style="font-weight: bold;">{{ bindVal_name }}</div>
+				<div>{{ bindVal_phoneNo }}</div>
+				<div>{{ bindVal_address }}</div>
 			</div>
 			<div class="col">
-				<img src="img/ben.png" style="width: 100%; border-radius: 5px;">
+				<img src="{{ bindVal_ppurl }}" style="width: 100%; border-radius: 5px;">
 			</div>
 		</div>
 		<div style="padding: 10px; background-color: rgba(0, 0, 0, .05);text-align: center;">HISTORY</div>
-	    <div class="card" ng-repeat="timelineCard in profileCardContainer">
+		<div class="card" ng-repeat="timelineCard in profileCardContainer">
 
 			<div class="item item-avatar" style="background-color: #EEE">
 				<img src="{{ timelineCard.picture }}">
@@ -31,6 +31,17 @@
 			</style>
 
 			<div class="item item-body textured">
+				<div class="row row-star-timeline">
+					<div class="col col-rate-timeline">
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 0.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 1.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 2.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 3.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 4.50 ? 'blue' : '' }}"></i>
+						&nbsp;
+						<span class="timeline-star-number">{{ timelineCard.star }}</span>
+					</div>
+				</div>
 				<p>
 					<b>Budget: {{ timelineCard.budget }}</b><br/>
 					<a class="subdued" style="font-weight: bold;"><small><i class="icon ion-clipboard"></i> {{ timelineCard.proposal.n }} (rata-rata:  {{ timelineCard.proposal.avg }})</small></a>
