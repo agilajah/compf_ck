@@ -30,7 +30,7 @@ function makeEnum(){
 var APP_USER = makeEnum('DASHBOARD', 'PROFILE', 'CHAT', 'SETTING');
 var APP_VENDOR = makeEnum('DASHBOARD', 'TIMELINE', 'PROFILE', 'CHAT', 'SETTING');
 
-angular.module('starter.controllers', ['luegg.directives'])
+angular.module('starter.controllers', [/*'luegg.directives'*/])
 
 .controller('LoginCtrl', function($scope, $state, $rootScope, $http, $timeout) {
   backDefault = $rootScope.$ionicGoBack;
@@ -160,7 +160,7 @@ angular.module('starter.controllers', ['luegg.directives'])
   $scope.gotoBottom = function(){
     setTimeout(function() {
       $ionicScrollDelegate.scrollBottom(false);
-    }, 10);
+    }, 100);
   }
 
   $scope.chatContainer = [];
