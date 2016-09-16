@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('chat', {
-    url: '/chat',
+    url: '/chat:parent_id',
     templateUrl: 'templates/chat.html',
     controller: 'ChatCtrl'
   })

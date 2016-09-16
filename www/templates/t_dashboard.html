@@ -7,33 +7,33 @@
     	<div class="row row_val_lab" style="padding: 10px; /*background-color: rgba(0, 0, 0, .1);*/">
 			<div class="col value_label value_label_money">
 				<div class="value money">
-					$870
+					{{ bindVal_money }}
 				</div>
 				<div class="label money">
-					spent
+					earned
 				</div>
 			</div>
 			<div class="col value_label value_label_works_done">
 				<div class="value works_done">
-					37
+					{{ bindVal_works }}
 				</div>
 				<div class="label works_done">
-					works added
+					works done
 				</div>
 			</div>
 		</div>
 		<div class="row" style="background-color: rgba(0, 0, 0, .1);">
 			<div class="col col-rate-star">
-				<i class="icon ion-ios-star rate-star blue"></i>
-				<i class="icon ion-ios-star rate-star blue"></i>
-				<i class="icon ion-ios-star rate-star blue"></i>
-				<i class="icon ion-ios-star rate-star blue"></i>
-				<i class="icon ion-ios-star rate-star"></i>
+				<i class="icon ion-ios-star rate-star {{ bindVal_rating >= 0.50 ? 'blue' : '' }}"></i>
+				<i class="icon ion-ios-star rate-star {{ bindVal_rating >= 1.50 ? 'blue' : '' }}"></i>
+				<i class="icon ion-ios-star rate-star {{ bindVal_rating >= 2.50 ? 'blue' : '' }}"></i>
+				<i class="icon ion-ios-star rate-star {{ bindVal_rating >= 3.50 ? 'blue' : '' }}"></i>
+				<i class="icon ion-ios-star rate-star {{ bindVal_rating >= 4.50 ? 'blue' : '' }}"></i>
 				&nbsp;
-				<span class="rate-star-number">4.1</span>
+				<span class="rate-star-number">{{ bindVal_rating }}</span>
 			</div>
 		</div>
-		<div style="padding: 10px; background-color: rgba(0, 0, 0, .05); font-weight: bold;">Orderan Anda yang sedang dikerjakan Vendor</div>
+		<div style="padding: 10px; background-color: rgba(0, 0, 0, .05); font-weight: bold;">Order yang sedang Anda kerjakan</div>
 
 		<div class="card" ng-repeat="timelineCard in dashboardCardContainer">
 
@@ -50,12 +50,20 @@
 			</style>
 
 			<div class="item item-body textured">
+				<div class="row row-star-timeline">
+					<div class="col col-rate-timeline">
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 0.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 1.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 2.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 3.50 ? 'blue' : '' }}"></i>
+						<i class="icon ion-ios-star timeline-star {{ timelineCard.star >= 4.50 ? 'blue' : '' }}"></i>
+						&nbsp;
+						<span class="timeline-star-number">{{ timelineCard.star }}</span>
+					</div>
+				</div>
 				<p>
 					<b>Budget: {{ timelineCard.budget }}</b><br/>
-					<a class="subdued" style="font-weight: bold;"><small><i class="icon ion-clipboard"></i> {{ timelineCard.namaVendor }}</small></a><br/>
-
-					<a class="subdued" style="font-weight: bold;"><small><i class="icon ion-social-usd-outline"></i> {{ timelineCard.bid }}</small></a>
-					
+					<b>Bid: {{ timelineCard.bid }}</b><br/>
 				</p>
 				<p>
 					{{ timelineCard.briefDesc }}<br/>
@@ -89,5 +97,6 @@
 			    	</div>
 			    </div>
 			</div>
+		</div>
     </ion-content>
 </ion-view>

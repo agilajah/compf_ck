@@ -1,6 +1,6 @@
 
 
-<ion-view view-title="Chat">
+<ion-view view-title="Chat" cache-view="false" >
 
 	<ion-nav-buttons side="left" ng-show="button_top_tab">
 		<button class="button icon ion-chevron-left" style="border: none;" ng-click="nav_button_back()"></button>
@@ -15,12 +15,16 @@
 			background-color: rgba(0, 0, 0, 0);
 		}
 	</style>
+<!--
 
     <ion-content class="has-footer textured" scroll-glue>
     	<div class="list listx">
-			<a class="item item-avatar {{ chatDetails.picture == null ? 'itemy' : 'itemx' }} item-text-wrap slow" href="#/chat" ng-repeat="chatDetails in chatContainer">
+			<a class="item item-avatar {{ chatDetails.picture == null ? 'itemy' : 'itemx' }} item-text-wrap slow" ng-repeat="chatDetails in chatContainer">
 				<img src="{{ chatDetails.picture }}" ng-show="chatDetails.picture == null ? false : true">
-				<p class="{{ chatDetails.picture == null ? 'chat_right' : 'chat_left' }}">{{ chatDetails.messages }}</p>
+				<div>
+					<p class="{{ chatDetails.picture == null ? 'chat_right' : 'chat_left' }}">{{ chatDetails.messages }}</p>
+					<span class="{{ chatDetails.picture == null ? 'read_status_right' : 'read_status_left' }}">R</span>
+				</div>
 			</a>
 		</div>
     </ion-content>
@@ -30,4 +34,70 @@
 	    </label>
 	   <button class="button button-positive icon ion-paper-airplane pull-right" style="z-index: 99"></button>
 	</div>
-</ion-view>
+</ion-view> -->
+  
+      <ion-content has-bouncing="true" class="has-header has-footer textured" 
+          delegate-handle="userMessageScroll" scroll-glue>
+        
+          <div ng-repeat="chatDetails in chatContainer" class="message-wrapper">
+  
+              <div ng-if="chatDetails.picture != null">
+                  
+                <img ng-click="viewProfile(message)" class="profile-pic left" 
+                      src="{{chatDetails.picture}}" onerror="" />
+  
+                  <div class="chat-bubble left">
+  
+                      <div class="message">
+                      	{{ chatDetails.messages }}
+                      </div>
+  
+                      <!-- <div class="message-detail">
+                          <span ng-click="viewProfile(message)" 
+                              class="bold">{{toUser.username}}</span>
+                          <span am-time-ago="message.date"></span>
+                      </div> -->
+  
+                  </div>
+              </div>
+  
+              <div ng-if="chatDetails.picture == null">
+                
+                   <!-- <img ng-click="viewProfile(message)" class="profile-pic right" 
+                      src="{{chatDetails.picture}}" onerror="" /> -->
+                
+                  <div class="chat-bubble right">
+  
+                      <div class="message">
+                      	{{chatDetails.messages}}
+                      </div>
+  
+                      <!-- <div class="message-detail">
+                          <span ng-click="viewProfile(message)" 
+                              class="bold">{{user.username}}</span>
+                          <span am-time-ago="message.date"></span>
+                      </div> -->
+  
+                  </div>
+                
+              </div>
+  
+              <div class="cf"></div>
+  
+          </div>
+      </ion-content>
+  
+      <form name="sendMessageForm" ng-submit="sendMessage(sendMessageForm)" novalidate>
+          <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+              <label class="item-input-wrapper">
+                  <textarea ng-model="input.message" value="" placeholder="Send {{toUser.username}} a message..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+              </label>
+              <div class="footer-btn-wrap">
+                <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                    ng-disabled="!input.message || input.message === ''">
+                </button>
+              </div>
+          </ion-footer-bar>
+      </form>
+      
+  </ion-view>
